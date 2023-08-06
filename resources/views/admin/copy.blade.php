@@ -1,7 +1,7 @@
 @extends('admin.master')
 
 @section('title')
-    dashboard
+    copy
 @stop
 
 @section('css')
@@ -16,12 +16,12 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0 text-dark">{{ trans('main_sidebar.Dashboard') }} </h1>
+                        <h1 class="m-0 text-dark">dashboard </h1>
                     </div><!-- /.col -->
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="#">{{ trans('main_sidebar.Home') }}</a></li>
-                            <li class="breadcrumb-item active">{{ trans('main_sidebar.Dashboard') }} </li>
+                            <li class="breadcrumb-item"><a href="#">Home</a></li>
+                            <li class="breadcrumb-item active">dashboard </li>
                         </ol>
                     </div><!-- /.col -->
                 </div><!-- /.row -->
@@ -29,7 +29,6 @@
         </div>
         <!-- /.content-header -->
 
-        {{ App::getlocale() }}
     @endsection
 
     @section('js')
