@@ -13,14 +13,21 @@ use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::group(
     [
         'prefix' => LaravelLocalization::setLocale(),
         'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ]
     ], function(){
-        Route::get('/dashboard', function () {
-            return view('admin.dashboard');
+        Route::group([
+            'middleware'=>['auth','is_admin']
+        ],function(){
+            Route::get('/dashboard', function () {
+                return view('admin.dashboard');
+            });
         });
     });
 
@@ -30,10 +37,7 @@ Route::group(
     });
 
 
-Route::get('/copy', function () {
-    return view('admin.copy');
-});
 
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+    /* Route::get('/copy', function () {
+        return view('admin.copy');
+    }); */
