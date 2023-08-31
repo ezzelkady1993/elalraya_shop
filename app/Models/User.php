@@ -28,7 +28,6 @@ class User extends Authenticatable
         'city',
         'country',
         'pincode',
-        'email_verified_at'
     ];
 
     /**

@@ -2,7 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
-
+use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\AdminController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,14 +21,14 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::group(
     [
         'prefix' => LaravelLocalization::setLocale(),
-        'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ]
+        'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' , 'auth' ]
     ], function(){
         Route::group([
-            'middleware'=>['auth','is_admin']
+            'middleware'=>['is_admin']
         ],function(){
-            Route::get('/dashboard', function () {
-                return view('admin.dashboard');
-            });
+            Route::get('/dashboard', [AdminController::class , 'index'])->name('dashboard');
+
+            Route::resource('/categories', CategoryController::class);
         });
     });
 
