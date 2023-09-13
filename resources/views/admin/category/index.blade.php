@@ -16,17 +16,20 @@
     <!-- Content Wrapper. Contains page content -->
 
 
-    <div class="card-header">{{ trans('category_trans.Create') }}</div>
+    <div class="card-header">
+        <a href="{{ route('categories.create') }}" class="btn btn-outline-primary">{{ trans('buttons_trans.Create') }}</a>
+    </div>
     <!-- /.card-header -->
     <div class="card-body">
         <table id="example1" class="table table-bordered table-striped">
             <thead>
                 <tr>
+                    <th>#</th>
                     <th>{{ trans('category_trans.name') }}</th>
                     <th>{{ trans('category_trans.image') }}</th>
                     <th>{{ trans('category_trans.is_showing') }}</th>
                     <th>{{ trans('category_trans.is_popular') }}</th>
-                    <th>Action</th>
+                    <th>{{ trans('buttons_trans.Actions') }}</th>
                 </tr>
             </thead>
             <tbody>
@@ -37,20 +40,22 @@
                     </td>
                     <td>Win 95+</td>
                     <td> 4</td>
+                    <td> X</td>
                     <td>
-                        <a href="#" class="btn btn-sm btn-outline-dark">{{ trans('category_trans.View') }}</a>
-                        <a href="#" class="btn btn-sm btn-outline-warning">{{ trans('category_trans.Edit') }}</a>
-                        <a href="#" class="btn btn-sm btn-outline-danger">{{ trans('category_trans.Delete') }}</a>
+                        <a href="#" class="btn btn-sm btn-outline-dark">{{ trans('buttons_trans.View') }}</a>
+                        <a href="#" class="btn btn-sm btn-outline-warning">{{ trans('buttons_trans.Edit') }}</a>
+                        <a href="#" class="btn btn-sm btn-outline-danger">{{ trans('buttons_trans.Delete') }}</a>
                     </td>
                 </tr>
             </tbody>
             <tfoot>
                 <tr>
+                    <th>#</th>
                     <th>{{ trans('category_trans.name') }}</th>
                     <th>{{ trans('category_trans.image') }}</th>
                     <th>{{ trans('category_trans.is_showing') }}</th>
                     <th>{{ trans('category_trans.is_popular') }}</th>
-                    <th>Action</th>
+                    <th>{{ trans('buttons_trans.Actions') }}</th>
                 </tr>
             </tfoot>
         </table>
